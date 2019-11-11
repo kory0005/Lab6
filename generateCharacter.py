@@ -1,4 +1,6 @@
-def generateDictionary():
+from gfxhat import lcd
+
+def generateDictionary(x):
     # read file
     fin = open("font3.txt", "r")
     lc = 1
@@ -14,13 +16,13 @@ def generateDictionary():
             # Dictionary
             dicts = {}
             dicts[key]=value
-
+            c = [dicts[k] for k in sorted(dicts.keys())[:x]]
+            print(c)
             moveOn = 1
         lc = lc + 1
     fin.close()
 
-
-# generateDictionary()
+generateDictionary(2)
 
 # Display character
 def displayObject(obj,x,y):
@@ -37,8 +39,8 @@ def displayObject(obj,x,y):
         i=i+1
     lcd.show()
 
-# character =
-# displayObject(generateDictionary(),10,10)
+character = generateDictionary()
+# displayObject(character,10,10)
 
 
 
